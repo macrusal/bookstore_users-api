@@ -15,15 +15,7 @@ type User struct {
 
 func (user *User) Validate() *errors.RestErr {
 	user.FirstName = strings.TrimSpace(strings.ToLower(user.FirstName))
-	if user.FirstName == "" {
-		return errors.NewBadRequestError("Invalid empty value to field first name")
-	}
-
 	user.LastName = strings.TrimSpace(strings.ToLower(user.LastName))
-	if user.LastName == "" {
-		return errors.NewBadRequestError("Invalid empty value to field last name")
-	}
-
 	user.Email = strings.TrimSpace(strings.ToLower(user.Email))
 	if user.Email == "" {
 		return errors.NewBadRequestError("Invalid email address")
